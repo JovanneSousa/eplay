@@ -1,25 +1,31 @@
-import React from 'react'
-import logo from './logo.svg'
-import './App.css'
+import { createBrowserRouter, RouterProvider } from 'react-router-dom'
+
+import Banner from './components/Banner'
+import Header from './components/Header'
+import { EstiloGlobal } from './styles'
+import ProductList from './components/ProductsList'
+
+const rotas = createBrowserRouter([
+  {
+    path: '/',
+    element: (
+      <>
+        <Banner />
+        <ProductList background="gray" title="Promoções" />
+      </>
+    )
+  }
+])
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <EstiloGlobal />
+      <div className="container">
+        <Header />
+      </div>
+      <RouterProvider router={rotas} />
+    </>
   )
 }
 
