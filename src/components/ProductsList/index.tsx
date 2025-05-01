@@ -1,6 +1,6 @@
 import Product from '../Product'
 import { Container, List } from './styles'
-import Game from '../Models/Game'
+import { Game } from '../../Pages/Home'
 
 export type Props = {
   title: string
@@ -8,25 +8,54 @@ export type Props = {
   games: Game[]
 }
 
-const ProductList = ({ title, background, games }: Props) => (
-  <Container background={background}>
-    <div className="container">
-      <h2>{title}</h2>
-      <List>
-        {games.map((games) => (
-          <Product
-            key={games.id}
-            category={games.category}
-            description={games.description}
-            image={games.image}
-            infos={games.infos}
-            system={games.system}
-            title={games.title}
-          />
-        ))}
-      </List>
-    </div>
-  </Container>
-)
+export const formataPreco = (preco = 0) => {
+  return new Intl.NumberFormat('pt-BR', {
+    style: 'currency',
+    currency: 'BRL'
+  }).format(preco)
+}
+
+const ProductList = ({ title, background, games }: Props) => {
+  const getGameTags = (game: Game) => {
+    const tags = []
+
+    if (game.release_date) {
+      tags.push(game.release_date)
+    }
+
+    if (game.prices.discount) {
+      tags.push(`${game.prices.discount}%`)
+    }
+
+    if (game.prices.current) {
+      tags.push(formataPreco(game.prices.current))
+    }
+
+    return tags
+  }
+
+  return (
+    <Container background={background}>
+      <div className="container">
+        <h2>{title}</h2>
+        <List>
+          {games.map((games) => (
+            <li key={games.id}>
+              <Product
+                id={games.id}
+                category={games.details.category}
+                description={games.description}
+                image={games.media.thumbnail}
+                infos={getGameTags(games)}
+                system={games.details.system}
+                title={games.name}
+              />
+            </li>
+          ))}
+        </List>
+      </div>
+    </Container>
+  )
+}
 
 export default ProductList

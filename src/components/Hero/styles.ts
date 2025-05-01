@@ -1,5 +1,4 @@
 import styled from 'styled-components'
-import bannerImg from '../../assets/images/fundo_hogwarts.png'
 import { cores } from '../../styles'
 import { TagContainer } from '../Tag/styles'
 
@@ -9,8 +8,6 @@ export const Banner = styled.div`
   width: 100%;
   position: relative;
   padding-top: 16px;
-
-  background-image: url(${bannerImg});
   background-repeat: no-repeat;
   background-position: center;
   background-size: 100%;
