@@ -6,15 +6,10 @@ import { Imagem, Preco, Titulo } from './styles'
 import Tag from '../Tag'
 import Botao from '../Button'
 import { Game } from '../../Pages/Home'
+import { useGetFeatruredGameQuery } from '../../services/api'
 
 const Banner = () => {
-  const [game, setGame] = useState<Game>()
-
-  useEffect(() => {
-    fetch('https://fake-api-tau.vercel.app/api/eplay/destaque')
-      .then((res) => res.json())
-      .then((res) => setGame(res))
-  }, [])
+  const { data: game, isLoading } = useGetFeatruredGameQuery()
 
   if (!game) {
     return <h3>Carregando</h3>
