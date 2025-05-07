@@ -4,10 +4,6 @@ import Section from '../Section'
 import { GalleryItem } from '../../Pages/Home'
 
 import { Action, Item, Items, Modal, ModalContent } from './styles'
-
-import spideman from '../../assets/images/banner-homem-aranha.png'
-import hogwarts from '../../assets/images/fundo_hogwarts.png'
-
 import play from '../../assets/images/play.png'
 import zoom from '../../assets/images/zoom.png'
 import fechar from '../../assets/images/fechar.png'
@@ -17,21 +13,6 @@ interface Props {
   name: string
   items: GalleryItem[]
 }
-
-const mock: GalleryItem[] = [
-  {
-    type: 'image',
-    url: spideman
-  },
-  {
-    type: 'image',
-    url: hogwarts
-  },
-  {
-    type: 'video',
-    url: 'https://www.youtube.com/embed/uHGShqcAHlQ?si=sS1Kf6dnfko5MBHV'
-  }
-]
 
 interface ModalState extends GalleryItem {
   isVisible: boolean
