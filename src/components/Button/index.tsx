@@ -7,6 +7,7 @@ export type Props = {
   onClick?: () => void
   children: string
   variant?: 'primary' | 'secondary'
+  disabled?: boolean
 }
 
 const Botao = ({
@@ -15,7 +16,8 @@ const Botao = ({
   children,
   title,
   onClick,
-  to
+  to,
+  disabled
 }: Props) => {
   if (type === 'button' || type === 'submit') {
     return (
@@ -24,6 +26,7 @@ const Botao = ({
         type={type}
         title={title}
         onClick={onClick}
+        disabled={disabled}
       >
         {children}
       </S.BotaoContainer>

@@ -1,4 +1,3 @@
-import Loader from '../../components/Loader'
 import ProductList from '../../components/ProductsList'
 
 import {
@@ -55,7 +54,7 @@ const Categories = () => {
         games={simutalionGames}
         background="black"
         title="Simulação"
-        isLoading={isLoadingRpg}
+        isLoading={isLoadingSimulation}
       />
     </>
   )
