@@ -6,7 +6,7 @@ type InputGroupProps = {
 }
 
 type RowProps = {
-  marginTop: string
+  marginTop?: string
 }
 
 type TabButtonProps = {
