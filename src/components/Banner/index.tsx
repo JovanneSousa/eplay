@@ -1,11 +1,11 @@
 import Tag from '../Tag'
 import Botao from '../Button'
+import Loader from '../Loader'
 
 import { parseToBrl } from '../../utils'
 import { useGetFeatruredGameQuery } from '../../services/api'
 
 import * as S from './styles'
-import Loader from '../Loader'
 
 const Banner = () => {
   const { data: game } = useGetFeatruredGameQuery()
