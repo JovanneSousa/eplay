@@ -4,7 +4,7 @@ import { Props } from '.'
 import { breakpoints, colors } from '../../styles'
 import { Card } from '../Product/styles'
 
-type PropsBackground = Omit<Props, 'title' | 'games' | 'isLoading'>
+export type PropsBackground = Omit<Props, 'title' | 'games' | 'isLoading'>
 
 export const Container = styled.section<PropsBackground>`
   padding: 32px 0;
