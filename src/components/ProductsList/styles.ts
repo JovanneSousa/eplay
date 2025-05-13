@@ -4,15 +4,15 @@ import { Props } from '.'
 import { breakpoints, colors } from '../../styles'
 import { Card } from '../Product/styles'
 
-export const Container = styled.section<
-  Omit<Props, 'title' | 'games' | 'isLoading'>
->`
+type PropsBackground = Omit<Props, 'title' | 'games' | 'isLoading'>
+
+export const Container = styled.section<PropsBackground>`
   padding: 32px 0;
-  background-color: ${(props: Props) =>
+  background-color: ${(props: PropsBackground) =>
     props.background === 'black' ? colors.black : colors.gray};
 
   ${Card} {
-    background-color: ${(props: Props) =>
+    background-color: ${(props: PropsBackground) =>
       props.background === 'black' ? colors.gray : colors.black};
   }
 `
